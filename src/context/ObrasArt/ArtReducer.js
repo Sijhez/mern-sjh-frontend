@@ -11,6 +11,7 @@ const reducer = (globalState, action)=>{
             } 
 
         case "GET_ARTICLES":
+          
             return{
                 ...globalState,
                 obrasArt:action.payload

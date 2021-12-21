@@ -12,6 +12,8 @@ import EditarObra from "./components/obrasArt/Single/EditarObra";
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
 import Auth from "./routes/Auth"
+import Private from "./routes/Private";
+import PerfilUser from "./components/User/PerfilUser";
 //importamos estates- global state
 import ArtState from "./context/ObrasArt/ArtState"
 import UsuarioState from "./context/Usuarios/UsuarioState";
@@ -31,11 +33,14 @@ export default function Router() {
                  <Route path='/articulos' element={<ObrasArt/>}/>
                  <Route path='/articulos/:id' element={<SingleArt/>}/>
                  <Route path='/articulos/crearArticulo' element={<CreateNewArt/>}/>
-                <Route path='/articulos/:id/editarArticulo' element={<EditarObra/>}/>
-                 <Route path='/iniciaSesion' element={<Login/>}/>
+                 <Route path='/articulos/:id/editarArticulo'
+                 element={<EditarObra/>}/>
+                 <Route path='/iniciaSesion' 
+                 element={<Auth component={Login}/>}/>
                  <Route path='/registro' 
                  element={<Auth component={Register}/>}
                  />
+                 <Route path="/perfil" element={<Private component={PerfilUser}/>}/>
              </Route>
           </Routes>
         </BrowserRouter>

@@ -6,7 +6,7 @@ export default function Register() {
     const ctx = useContext(UsuariosContext)
     const{
         registroUsuario
-    }=ctx
+    } = ctx
 
     const [newUsuario, setNewUsuario] = useState({
         nombre:"",
@@ -25,7 +25,7 @@ export default function Register() {
        const handleSubmit = (e)=>{
          e.preventDefault()
          registroUsuario(newUsuario)
-     
+           
        }
 
 

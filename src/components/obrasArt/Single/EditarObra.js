@@ -1,9 +1,10 @@
 import React, {useState, useContext, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import ObrasArtContext from './../../../context/ObrasArt/ArtContext'
 
 export default function EditarObra() {
     //definir estado global
+    const navigate = useNavigate()
     const ctx = useContext(ObrasArtContext)
     const params = useParams()
     const idObra = params.id
@@ -25,6 +26,7 @@ export default function EditarObra() {
 
     useEffect(()=>{
         getSingleArt(idObra)
+    
     },[])
 
     useEffect(()=>{
@@ -59,8 +61,12 @@ export default function EditarObra() {
    const handleSubmit = (e)=>{
        e.preventDefault()
       updateArt(artData, idObra)
+      navigate('/articulos')
+          
      
    }
+
+
       
 
 
@@ -68,7 +74,7 @@ export default function EditarObra() {
     return (
         <div>
             <h1>Aqui puedes editar tu artículo</h1>
-            <form onSubmit={(event)=>{handleSubmit(event)}}>
+            <form  onSubmit={(event)=>{handleSubmit(event)}} >
             <label>Titulo de artículo:</label>
                 <input onChange={(event)=>{handleChange(event)}} value={artData.titulo} type='text' name="titulo"/><br/>
                 <label>Descripción:</label>
@@ -81,7 +87,9 @@ export default function EditarObra() {
                 <input onChange={(event)=>{handleChange(event)}} type='text' value={artData.imagen2} name="imagen2"/><br/>
                 <label>Imagen3</label>
                 <input onChange={(event)=>{handleChange(event)}} type='text' value={artData.imagen3} name="imagen3"/><br/>
-                <button type="submit">
+            
+            
+            <button type="submit">
             Guardar Articulo
           </button>
             </form>

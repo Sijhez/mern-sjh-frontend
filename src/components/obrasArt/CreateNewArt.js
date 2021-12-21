@@ -1,7 +1,8 @@
 import React, {useState, useContext} from 'react'
 import ObrasArtContext from '../../context/ObrasArt/ArtContext'
-
+import { useNavigate } from 'react-router-dom'
 export default function CreateNewArt() {
+    const navigate = useNavigate()
       //definir estado global   
       const ctx = useContext(ObrasArtContext)
       const {
@@ -29,6 +30,7 @@ export default function CreateNewArt() {
          const handleSubmit = (e)=>{
              e.preventDefault()
              createNewArt(newArt)
+             navigate('/articulos')
          }
 
 

@@ -6,7 +6,9 @@ import ObrasArtReducer from './ArtReducer'
 //IMPORTAMOS AXIOS CLIENT PARA CONECTAR CON SERVIDOR
 import axiosClient from '../../config/axios'
 
+
 const ObrasArtState = (props) =>{
+    
     //estado Inicial
     const initialState = {
         obrasArt:[],
@@ -68,6 +70,13 @@ const updateArt = async (form, idObra)=>{
 
 }
 
+//BORRAR UNA OBRA DE ARTE
+const deleteArt = async (idObra)=>{
+    
+    const res = await axiosClient.delete(`articulos/borrarArticulo/${idObra}`)
+    
+}
+
     //generamos retorno para dispatch
 
     return(
@@ -79,7 +88,8 @@ const updateArt = async (form, idObra)=>{
             getSingleArt,
             getObrasArtAll,
             createNewArt,
-            updateArt
+            updateArt,
+            deleteArt
 
         }}
         >

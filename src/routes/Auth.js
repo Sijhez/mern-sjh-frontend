@@ -19,7 +19,7 @@ export default function PublicRoute({component: Component, ...props}){
        <>
          {
              authStatus ?
-             (<Navigate replace to='/iniciaSesion'/>) 
+             (<Navigate replace to='/'/>) 
              : 
              (<Component/>)
          }
