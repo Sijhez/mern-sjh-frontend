@@ -14,6 +14,7 @@ import Login from "./components/Auth/Login";
 import Auth from "./routes/Auth"
 import Private from "./routes/Private";
 import PerfilUser from "./components/User/PerfilUser";
+import Perfiles from "./components/User/index"
 //importamos estates- global state
 import ArtState from "./context/ObrasArt/ArtState"
 import UsuarioState from "./context/Usuarios/UsuarioState";
@@ -31,6 +32,7 @@ export default function Router() {
              <Route path="/" element={<Layout/>}>
                  <Route index element={<Home/>}/>
                  <Route path='/articulos' element={<ObrasArt/>}/>
+                 <Route path='/perfilesArt' element={<Perfiles/>}/>
                  <Route path='/articulos/:id' element={<SingleArt/>}/>
                  <Route path='/articulos/crearArticulo' element={<CreateNewArt/>}/>
                  <Route path='/articulos/:id/editarArticulo'

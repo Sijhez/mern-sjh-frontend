@@ -40,7 +40,7 @@ export default function ObrasArtAll() {
             </Link>
         </h3>
         <p class="mt-1 text-sm text-gray-500">Artista Nombre</p>
-        <p class="mt-1 text-sm font-medium text-gray-900">{articulo.precio}</p>
+        <p class="mt-1 text-sm font-medium text-gray-900">$ {articulo.precio}.00 mxn</p>
       </div>
 
                      

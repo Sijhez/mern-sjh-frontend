@@ -32,21 +32,24 @@ const Header = () => {
 
        
           
-          <Link to='/articulos'> 
-          <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Solutions">
+          <Link to='/articulos'className="text-base font-medium text-white hover:text-indigo-50" > 
+        
           Galería de Artículos
-           </a>
+           </Link>
+
+           <Link to='/perfilesArt'className="text-base font-medium text-white hover:text-indigo-50" > 
+        
+          Artistas
            </Link>
 
            {
              currentUser.nombre ?
              <>
-             <Link to='/articulos/crearArticulo'>Crear un artículo</Link>
+             <Link to='/articulos/crearArticulo' className="text-base font-medium text-white hover:text-indigo-50">Crear un artículo</Link>
              
-              <Link to="/perfil">
-              <a href="#" lass="text-base font-medium text-white hover:text-indigo-50"> Bienvenid@
+              <Link to="/perfil" className="text-base font-medium text-white hover:text-indigo-50">
+               Bienvenid@
                {currentUser.nombre}
-               </a>
                </Link>
              
                <a href="/" class="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50" 
