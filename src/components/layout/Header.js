@@ -40,7 +40,7 @@ const Header = () => {
       <div class="flex items-center">
       <Link to='/'>
           <span class="sr-only">Workflow</span>
-          <img class="h-10 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt=""/>
+          <img class="h-10 w-auto" src="https://i.ibb.co/R9Ztq5M/logo-Media-Mesa-de-trabajo-1.png" alt=""/>
           </Link>
         <div class="hidden ml-10 space-x-8 lg:block">
 
