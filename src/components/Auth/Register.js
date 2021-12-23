@@ -1,8 +1,10 @@
 import React, {useState, useContext} from 'react'
 //import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import UsuariosContext from '../../context/Usuarios/UsuarioContext'
 
 export default function Register() {
+  const navigate = useNavigate()
     const ctx = useContext(UsuariosContext)
     const{
         registroUsuario
@@ -25,6 +27,7 @@ export default function Register() {
        const handleSubmit = (e)=>{
          e.preventDefault()
          registroUsuario(newUsuario)
+         navigate('/crearPerfil')
            
        }
 

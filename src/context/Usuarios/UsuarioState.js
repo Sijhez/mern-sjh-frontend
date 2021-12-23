@@ -70,6 +70,7 @@ const UsuarioState = (props) =>{
        value={{
         currentUser:globalState.currentUser,
         authStatus:globalState.authStatus,
+        idUsuario:globalState.idUsuario,
         registroUsuario,
         loginUsuario,
         verifyingToken,

@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const home = () => {
     return (
@@ -14,7 +15,7 @@ const home = () => {
             
             <div className="mt-6 sm:max-w-xl">
               <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
-                Subasta y compra arte emergente.
+                Compra arte emergente.
               </h1>
               <p className="mt-6 text-xl text-gray-500">
                 Encuentra artístas emergentes, conóce y adquiere sus piezas únicas.
@@ -24,7 +25,9 @@ const home = () => {
             <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
           
               <div className="mt-4 sm:mt-0 sm:ml-3">
+               <Link to='/articulos'>
                 <button className="block w-full rounded-md border border-transparent px-5 py-3 bg-rose-500 text-base font-medium text-white shadow hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 sm:px-10">Visitar Galería</button>
+                </Link>
               </div>
             </form>
 

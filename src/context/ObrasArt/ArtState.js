@@ -19,7 +19,9 @@ const ObrasArtState = (props) =>{
             imagen1:"",
             imagen2:"",
             imagen3:"",
-            precio:""
+            precio:"",
+            autor:"",
+            idAutor:""
         }
     }
 
@@ -74,7 +76,7 @@ const updateArt = async (form, idObra)=>{
 const deleteArt = async (idObra)=>{
     
     const res = await axiosClient.delete(`articulos/borrarArticulo/${idObra}`)
-    
+    res.redirect("/articulos")
 }
 
     //generamos retorno para dispatch
