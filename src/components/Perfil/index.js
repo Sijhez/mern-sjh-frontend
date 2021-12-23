@@ -1,25 +1,25 @@
-import React, {useEffect, useContext}  from 'react'
-import {Link} from 'react-router-dom'
-import UsuariosContext from "./../../context/Usuarios/UsuarioContext";
+import React, {useEffect, useContext, useState}  from 'react'
+import {Link, useParams} from 'react-router-dom'
+//import UsuariosContext from "./../../context/Usuarios/UsuarioContext";
+import PerfilContext from '../../context/UserPerfil/PerfilContext';
 
-export default function PerfilUser() {
+export default function SingleProfile() {
+      const ctx=useContext(PerfilContext)
+    const{ userPerfil,getOneProfile} =ctx
 
-    const ctx = useContext(UsuariosContext)
-    const {
-      currentUser,
-      verifyingToken,
-      logoutUsuario
-    } = ctx
- 
+    const params =useParams()
+    const idUsuario=params.id
+
     useEffect(()=>{
-     verifyingToken()
+      getOneProfile(idUsuario)
     },[])
-
 
     return (
         <>
+        <div>
+          
 
-            <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
+     <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
        
         
 
@@ -37,26 +37,18 @@ export default function PerfilUser() {
                 <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
                   <div class="sm:hidden 2xl:block mt-6 min-w-0 flex-1">
                     <h1 class="text-2xl font-bold text-gray-900 truncate">
-                    {currentUser.nombre}
+                    {userPerfil.nombre}
                     </h1>
                   </div>
                   <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-                    <button type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
+                    
                    
-                     
-                      <span>Editar Perfil</span>
-                    </button>
-                    <button type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
-                  
-                     
-                      <span>Eliminar</span>
-                    </button>
                   </div>
                 </div>
               </div>
               <div class="hidden sm:block 2xl:hidden mt-6 min-w-0 flex-1">
                 <h1 class="text-2xl font-bold text-gray-900 truncate">
-                {currentUser.nombre}
+                {userPerfil.nombre}
                 </h1>
               </div>
             </div>
@@ -85,21 +77,25 @@ export default function PerfilUser() {
 
           <div class="mt-6 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-              <div class="sm:col-span-1">
-                <dt class="text-sm font-medium text-gray-500">
-                  Teléfono de contacto
-                </dt>
-                <dd class="mt-1 text-sm text-gray-900">
-                  00000
-                </dd>
-              </div>
+              
 
               <div class="sm:col-span-1">
                 <dt class="text-sm font-medium text-gray-500">
                   Email
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900">
-                {currentUser.email}
+                {userPerfil.email}
+                </dd>
+              </div>
+
+              <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">
+                  Redes sociales
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900">
+               <a href={userPerfil.socialMedia1}> {userPerfil.socialMedia1} </a><br/>
+               <a href={userPerfil.socialMedia2}> {userPerfil.socialMedia2} </a><br/>
+               <a href={userPerfil.socialMedia3}>  {userPerfil.socialMedia3} </a><br/>
                 </dd>
               </div>
 
@@ -223,7 +219,9 @@ export default function PerfilUser() {
       </main>
 
 
+
             
-      </>
+        </div>
+        </>
     )
 }

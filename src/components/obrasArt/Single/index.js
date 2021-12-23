@@ -31,7 +31,7 @@ export default function SingleArt() {
     <div class="grid items-center grid-cols-1 gap-y-16 gap-x-8 lg:grid-cols-2">
       <div>
         <div class="border-b border-gray-200 pb-10">
-          <h2 class="font-medium text-gray-500">Nombre Artista</h2>
+          <h2 class="font-medium text-gray-500">{singleArt.autor}</h2>
           <p class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">{singleArt.titulo}</p>
 
           <p class="mt-4 text-base font-medium text-gray-900">
@@ -45,8 +45,11 @@ export default function SingleArt() {
             <dd class="mt-3 text-sm text-gray-500">{singleArt.descripcion}</dd>
           </div>
 
-          {
-                currentUser.nombre ?<>
+          
+            
+            {
+                currentUser.nombre === singleArt.autor ? <>
+
                 <Link to={`/articulos/${id}/editarArticulo`}>
                   <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   Editar Articulo
@@ -58,10 +61,17 @@ export default function SingleArt() {
                     Eliminar artículo
                   </button>
                 
-             </>: <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+             </>
+             : 
+             <Link to={`/perfilesArt/${singleArt.idAutor}`}>
+             <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   Ver Perfil
                    </button>
+                   </Link>
              }
+          
+
+          
 
 <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   Comprar artículo

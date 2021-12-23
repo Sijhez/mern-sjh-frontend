@@ -1,10 +1,21 @@
 import React, {useEffect, useContext} from "react";
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import UsuariosContext from "../../context/Usuarios/UsuarioContext";
-
+import PerfilContext from '../../context/UserPerfil/PerfilContext';
 
 const Header = () => {
+     
+  const params =useParams()
+  const idUsuario=params.id
+
+
    const ctx = useContext(UsuariosContext)
+   const profileCtx = useContext(PerfilContext)
+   const{
+    userPerfil,getOneProfile
+  } = profileCtx
+
+
    const {
      currentUser,
      verifyingToken,
@@ -14,6 +25,10 @@ const Header = () => {
    useEffect(()=>{
     verifyingToken()
    },[])
+
+   useEffect(()=>{
+    getOneProfile(idUsuario)
+  },[])
 
 
     return (
@@ -25,7 +40,6 @@ const Header = () => {
       <div class="flex items-center">
       <Link to='/'>
           <span class="sr-only">Workflow</span>
-            
           <img class="h-10 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt=""/>
           </Link>
         <div class="hidden ml-10 space-x-8 lg:block">
@@ -43,11 +57,27 @@ const Header = () => {
            </Link>
 
            {
+             userPerfil.idUsuario ? 
+             <>
+            
+
+                   <button type="button" style={{display:'none'}} class="inline-flex justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">
+                   Crear mi perfil
+                 </button>
+                   
+             </>
+             :
+             <Link to={"/crearPerfil"}className="text-base font-medium text-white hover:text-indigo-50" > 
+                 Crear mi perfil
+                 </Link>
+           }
+
+           {
              currentUser.nombre ?
              <>
              <Link to='/articulos/crearArticulo' className="text-base font-medium text-white hover:text-indigo-50">Crear un artículo</Link>
              
-              <Link to="/perfil" className="text-base font-medium text-white hover:text-indigo-50">
+              <Link to={`/perfilesArt/${userPerfil._id}`} className="text-base font-medium text-white hover:text-indigo-50">
                Bienvenid@
                {currentUser.nombre}
                </Link>
