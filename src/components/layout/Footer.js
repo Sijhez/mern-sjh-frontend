@@ -79,7 +79,7 @@ const footer = () => {
         </a>
       </div>
       <p class="mt-8 text-center text-base text-gray-400">
-        &copy; 2020 Workflow, Inc. All rights reserved.
+        &copy; 2020Media Art. Web desarrollada por Sinuhé Jardínez
       </p>
     </div>
   </footer> 
