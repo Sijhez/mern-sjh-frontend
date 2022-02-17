@@ -8,7 +8,8 @@ const UsuarioState = (props) =>{
         currentUser:{
             nombre:"",
             email:"",
-            password:""
+            password:"",
+            myArticles:[]
         },
         authStatus:false
     }

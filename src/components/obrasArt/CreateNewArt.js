@@ -31,8 +31,8 @@ export default function CreateNewArt() {
           imagen2:"",
           imagen3:"",
           precio:"",
-          autor:currentUser.nombre,
-          idAutor:userPerfil._id
+          autor:currentUser._id
+         
          })
 
         
@@ -79,7 +79,7 @@ export default function CreateNewArt() {
             Título de Artículo
           </label>
           <div class="mt-1">
-            <input type="text" onChange={(event)=>{handleChange(event)}} type='text' name="titulo" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
+            <input type="text" onChange={(event)=>{handleChange(event)}} typeof='text' name="titulo" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
           </div>
         </div>
 
@@ -120,7 +120,7 @@ export default function CreateNewArt() {
             Imagen 1
           </label>
           <div class="mt-1">
-            <input type="text" onChange={(event)=>{handleChange(event)}} type='text'  name="imagen1"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
+            <input type="text" onChange={(event)=>{handleChange(event)}} typeof='text'  name="imagen1"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"/>
           </div>
         </div>
 

@@ -13,15 +13,13 @@ const ObrasArtState = (props) =>{
     const initialState = {
         obrasArt:[],
         singleArt:{
-            _id:"",
             titulo:"",
             descripcion:"",
             imagen1:"",
             imagen2:"",
             imagen3:"",
             precio:"",
-            autor:"",
-            idAutor:""
+            autor:""
         }
     }
 
@@ -33,7 +31,7 @@ const ObrasArtState = (props) =>{
     const getObrasArtAll = async() =>{
         const res = await axiosClient.get("articulos/verArticulos")
         console.log("Consiguiendo artículos");
-        //console.log(res)
+        // console.log(res)
 
         const listArt = res.data.data
         dispatch({
